@@ -1,4 +1,4 @@
 .DS_Store
-node_modules
-public
-project_assets
+node_modules/
+public/
+project_assets/
