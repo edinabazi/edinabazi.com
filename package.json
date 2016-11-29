@@ -1,0 +1,21 @@
+{
+  "name": "edin.space",
+  "description": "Personal site",
+  "dependencies": {
+    "autoprefixer-stylus": "0.9.x",
+    "axis": "0.6.x",
+    "coffee-script": "1.x",
+    "css-pipeline": "0.3.x",
+    "dynamic-content": "^0.3.0",
+    "jade": "1.x",
+    "jeet": "6.1.2",
+    "js-pipeline": "0.2.x",
+    "jstransformer-marked": "1.x",
+    "marked": "0.3.x",
+    "nib": "^1.1.2",
+    "roots": "^5.0.0",
+    "roots-collections": "^0.3.3",
+    "rupture": "^0.6.1",
+    "stylus": "0.54.x"
+  }
+}

@@ -1,0 +1,31 @@
+doctype html
+html.no-js(lang="en")
+
+	include ../_partials/_head
+
+	body
+
+		include ../_partials/_no-js
+		include ../_partials/_header
+
+		main#barba-wrapper
+			.barba-container(data-namespace='singlepost')
+				
+				section#single-post
+					.small-container
+
+						.post-head.post-element
+							.meta
+								span.date= post.date
+								span.divider •
+								span.cat= post.category
+							.title
+								h2= post.title
+
+						.post-body.post-element
+							block content
+		
+		include ../_partials/_footer
+		include ../_partials/_analytics
+
+		script(src="/js/build.js")

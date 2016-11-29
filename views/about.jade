@@ -1,0 +1,28 @@
+extends _layouts/_main-layout
+
+block vars
+	- var about = true
+	- var pageTitle = 'About'
+
+block content
+
+	.barba-container(data-namespace='about')
+		
+		section#about
+			
+			.small-container
+
+				.section-title
+					h2.fade-up About Me
+
+				.about-container
+
+					p As a fun oriented person, I've taught myself front-end development, as well as attended courses in order to hone my design skills. With 3 years of professional experience in web design and development, I consider myself skilled enough to proudly present a selection of my <a href="projects">projects</a>. Additional skills of mine are video editing, photography editing and color correction.
+
+					p My daily front-end workflow consists of using <a href="http://stylus-lang.com" target="_blank">Stylus</a> for stylesheet preprocessing, <a href="http://pugjs.org" target="_blank">Pug</a> for templating, and <a href="http://gulpjs.com/" target="_blank">Gulp</a> for automating the many tasks necessary to deliver quality websites.
+
+					p I'm extremely passionate about technology and entertainment; my interests range from mobile hardware and Android software, to games. I'm a great fan of the Counter-Strike franchise, and have been playing it passionately for <a href="https://steamcommunity.com/id/destruktorZ" target="_blank">over a decade</a>.
+
+					p I believe that every digital artist needs to have fitting music following their every pixel and byte. My music of choice is located on the <a href="https://soundcloud.com/edinchez/sets/depth" target="_blank">deeper end of the spectrum</a>.
+
+			img(src="img/about.png", class="about-image")

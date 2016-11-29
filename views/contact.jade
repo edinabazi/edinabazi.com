@@ -1,0 +1,20 @@
+extends _layouts/_main-layout
+
+block vars
+	- var contact = true
+	- var pageTitle = 'Talk to'
+
+block content
+
+	.barba-container(data-namespace='contact')
+
+		section#contact.section-centered
+			
+			.contact-content.centered-content
+
+				.contact-content-wrapper.centered-content-wrapper
+					address
+						h2
+							a(href="mailto:hello@edinabazi.com", class="email") hello@edinabazi.com
+					p.location I'm currently located in Skopje, Macedonia.
+					p.availability Feel free to get in touch about remote work.

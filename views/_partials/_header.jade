@@ -1,0 +1,18 @@
+header
+
+	#logo
+		a(href="/") 
+			h1.big EA
+			h1.small Edin Abazi
+
+	nav
+		ul
+			li.projects(class=(projects ? 'is-active' : ''))
+				a(href="/projects.html") Projects
+			li.blog(class=(blog ? 'is-active' : ''))
+				a(href="/blog") Blog
+			li.about(class=(about ? 'is-active' : ''))
+				a(href="/about.html") About
+			li.contact(class=(contact ? 'is-active' : ''))
+				a(href="/contact.html", class="contact-big") Let's talk!
+				a(href="/contact.html", class="contact-small") Contact

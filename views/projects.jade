@@ -1,0 +1,35 @@
+extends _layouts/_main-layout
+
+block vars
+	- var projects = true
+	- var pageTitle = 'Projects created by'
+
+block content
+
+	.barba-container(data-namespace='projects')
+		
+		section#projects
+			.container
+
+				.section-title
+					h2.fade-up Selected Projects
+				
+				.projects-container
+
+					each post in site.views.projects
+						article.project
+
+							.project-image
+								a(href=post.url, target="_blank")
+									img(src="/img/projects/" + post.cover)
+
+							a(href=post.url, target="_blank")
+								.project-info
+									.info-head
+										h2= post.title
+										p.summary= post.content
+									.info-bottom
+										span.post-type= post.type
+										.arrow
+											span.to-go &rsaquo;
+											span.to-come &rsaquo;

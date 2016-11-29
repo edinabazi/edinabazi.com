@@ -1,0 +1,776 @@
+// Import Stylus plugins
+@import 'jeet'
+@import 'nib'
+@import 'rupture'
+
+// Import partial styles
+@import '_fonts.styl'
+@import '_icons.styl'
+@import '_vars.styl'
+@import '_partials.styl'
+@import '_prism.styl'
+// @import '_scrollbar.styl'
+@import '_animations.styl'
+
+// Selection Color
+selection()
+global-reset()
+
+// Main body styles
+
+html
+	position relative 
+	
+	&.no-js
+		opacity 1
+		.no-js-alert
+			display block
+			
+		.fade-up, .fade-up-delay
+			opacity 1
+			transform translateY(0)
+			
+		section#home
+			h2 span, p
+				opacity 1
+				transform translateY(0)
+				
+		section#projects
+			article.project
+				.project-image, .project-info
+					opacity 1
+				
+				&:nth-child(odd)
+					.project-info
+						transform translate(-15%, 60%)
+						
+				&:nth-child(even)
+					.project-info
+						transform translate(15%, 60%)
+						
+		section#blog
+			article.post
+				opacity 1
+				transform translateY(0)
+			
+	&.js
+		.no-js-alert
+			display none
+			
+
+
+// Body
+
+borderSize = 8px // Use this value as the body's min-height calc value. Stylus won't let me use the var.
+borderColor = lighten(color-primary, 5%)
+
+body
+	font-heading()
+	background-color color-primary
+	color rgba(color-white, 0.9)
+	padding 0
+	margin 0
+	border-left borderSize solid borderColor
+	border-right borderSize solid borderColor
+	margin-bottom borderSize
+	display flex
+	flex-direction column
+	min-height calc(100vh - 8px)
+	
+	&:before, &:after
+		content ""
+		position fixed
+		background borderColor
+		left 0
+		right 0
+		height borderSize
+		z-index 100
+	
+	&:after
+		bottom 0
+			
+	+below(medium)
+		border 0
+		
+		&:before, &:after
+			display none
+		
+
+
+// Header
+
+header
+	display flex
+	align-items center
+	padding (pad+borderSize) pad
+	align-items center
+		
+	#logo
+		position relative
+		width 60px
+		height 60px
+		background-color color-secondary
+		
+		a
+			display block
+			position absolute
+			width 100%
+			height 100%
+			color color-primary
+			text-decoration none
+		
+		h1.big
+			position absolute
+			top 55%
+			left 50%
+			transform translate(-50%, -50%)
+			font-size 18px
+			
+		h1.small
+			margin-top (pad/4)
+			
+		+below(430px)
+			h1.big
+				display none
+		
+		+above(430px)
+			h1.small
+				display none
+			
+	nav
+		margin-left pad
+		flex 1
+		
+		+below(navScale)
+			flex 0
+			margin-left auto
+		
+		ul
+			flex 1
+			display flex
+			
+			li
+				display inline-block
+				padding-top 4px
+				
+				&:not(:last-child)
+					margin-right (pad - 14px)
+					
+					+below(navScale)
+						margin-right 5px
+					
+				a
+					display inline-block
+					position relative
+					padding 10px 12px 7px 12px
+					color color-white
+					text-transform lowercase
+					text-decoration none
+					font-size 14px
+					font-weight 700
+					z-index 3
+					
+					&:after
+						content ""
+						position absolute
+						top 0
+						left 0
+						width 100%
+						height 100%
+						background-color color-white
+						z-index -1
+						transform scaleX(0)
+						
+					&:hover, &:focus
+						color color-primary
+						transition 300ms
+						
+						&:after
+							transition transform 250ms easeOutQuart
+							transform scaleX(1)
+							
+				&.is-active
+					a
+						color color-primary
+						
+						&:after
+							background-color color-secondary
+							transform scaleX(1)
+							
+				&.contact
+					margin-left auto
+					
+					a
+						background-color color-tertiary
+						color color-primary
+						text-transform lowercase
+						font-size 15px
+						
+						&:hover, &:focus
+							transition 0ms !important
+							
+							&:after
+								background-color color-secondary
+								
+					+above(navScale)
+						.contact-small
+							display none
+							
+					+below(navScale)
+						margin-left 0
+						
+						a
+							background-color transparent
+							color color-white
+							font-size 14px
+							
+							&:hover, &:focus
+								color color-primary
+						
+						.contact-big
+							display none
+							
+					&.is-active
+						.contact-big, .contact-small
+							color color-primary
+							
+	
+	&.absolute
+		position absolute
+		top 0
+		left 0
+		width 100%
+		z-index 90
+
+	+below(medium)
+		padding (pad/2)
+		
+	+below(430px)
+		flex-direction column
+		
+		#logo
+			width 100%
+			height 30px
+			background-color transparent
+			text-align center
+			
+			a
+				color color-secondary
+		
+		nav
+			margin-left 0
+			margin-top (pad/4)
+		
+	
+				
+
+
+// Particles
+
+#particles
+	position fixed
+	top 0
+	left 0
+	width 100%
+	height 100%
+	z-index 0
+	padding 0 borderSize
+	animation zoomIn 1.3s easeOutQuart
+	transition 1000ms easeOutQuart
+	
+	&.zoomed-out
+		transform scale3d(0.75, 0.75, 1)
+		opacity 0.5
+
+
+
+
+// Main stuff
+
+main
+	flex 1
+	
+	&.centered
+		display flex
+		
+		.barba-container
+			flex 1
+			display flex
+			flex-direction column
+			
+			section.section-centered
+				flex 1
+				display flex
+				
+				.centered-content
+					flex 1
+					display flex
+					flex-direction column
+					justify-content space-around
+					
+					.centered-content-wrapper
+						margin 0 12.5%
+						
+						+below(medium)
+							margin 0 7%
+							
+
+.on-top
+	position relative
+	z-index 10
+	
+
+.fade-up
+	opacity 0
+	transform translateY(100px)
+
+.fade-up-delay
+	opacity 0
+	transform translateY(100px)
+					
+
+// Section
+
+.section-title
+	text-align center
+	margin-top (pad*2)
+	margin-bottom (pad*3)
+	
+	h2
+		font-size 3.5vw
+		display inline-block
+		text-transform lowercase
+		
+		+below(large)
+			font-size 5.5vw
+			
+		+below(medium)
+			font-size 8.5vw
+			
+		+below(550px)
+			font-size 9.5vw
+	
+
+
+// Home
+
+section#home
+	
+	h2
+		font-size 54px
+		font-weight 700
+		line-height 1.35
+		
+		+below(1054px)
+			font-size 5.9vw
+			
+		+below(470px)
+			font-size 7.5vw
+			
+		span
+			display inline-block
+			transform translateY(80px)
+			opacity 0
+		
+	p
+		font-paragraph()
+		font-size 1.125rem
+		line-height 1.5
+		margin-top pad
+		color rgba(color-white, 0.85)
+		transform translateY(80px)
+		opacity 0
+		
+		+below(medium)
+			br
+				display none
+				
+	a
+		color color-secondary
+		text-decoration none
+		
+		&:hover, &:focus
+			text-decoration underline
+
+
+
+// Projects
+
+section#projects
+	margin-bottom (pad*6)
+	
+	.container
+		+below(small)
+			padding 0
+	
+	article.project
+		position relative
+		margin-bottom (pad*4.5)
+		
+		.project-image
+			opacity 0
+			transform translateY(100px)
+			
+			img
+				height 600px
+				width 85%
+				object-fit cover
+				object-position 0 0
+				vertical-align top
+				
+				+below(small)
+					height 350px
+					width 100%
+					object-position 5% 0
+		
+		.project-info
+			display flex
+			flex-direction column
+			justify-content space-between
+			z-index 15
+			width 360px
+			height 360px
+			position absolute
+			bottom 0
+			background-color color-secondary
+			color color-primary
+			padding pad
+			opacity 0
+			
+			+below(small)
+				max-width 70%
+				height 300px
+			
+			.info-head
+				h2
+					font-size 28px
+				p.summary
+					margin-top (pad/2)
+					font-paragraph()
+					line-height 1.4
+					font-size 15px
+					+below(small)
+						display none
+				
+			.info-bottom
+				display flex
+				justify-content space-between
+				align-items center
+				overflow hidden
+				
+				span.post-type
+					flex 1
+					font-size 0.875rem
+					
+				.arrow
+					display inline-flex
+					justify-content center
+					align-items center
+					width 40px
+					height 40px
+					background-color color-primary
+					color color-secondary
+					font-size 1.4rem
+					overflow hidden
+					
+					span
+						transition 400ms easeOutQuart
+						&.to-go
+							transform translateX(4px)
+						&.to-come 
+							transform translateX(-50px)
+					
+			&:hover, &:focus
+				.info-bottom
+					.arrow
+						span
+							&.to-go
+								transform translateX(50px)
+							&.to-come
+								transform translateX(-4px)
+						
+		&:nth-child(odd)
+			.project-image
+				text-align left
+			.project-info
+				right 0
+				left auto
+				transform translate(-15%, 70%)
+				+below(small)
+					transform translate(0, 70%)
+				
+		&:nth-child(even)
+			.project-image
+				text-align right
+			.project-info
+				right auto
+				left 0
+				transform translate(15%, 70%)
+				+below(small)
+					transform translate(0, 70%)
+			
+
+		
+
+
+// Blog
+
+section#blog
+	padding-bottom pad
+	
+	.posts-container
+		display flex
+		flex-wrap wrap
+	
+	article.post
+		flex 0 1 calc(50% - 80px)
+		display flex
+		min-height 350px
+		background-color lighten(color-primary, 5%)
+		box-shadow 2px 1px 1px rgba(color-primary, 0.5)
+		margin pad
+		opacity 0
+		transform translateY(100px)
+		
+		+below(large)
+			flex 0 1 100%
+			margin 0 0 pad 0
+			
+			&:last-child
+				margin 0
+		
+		a
+			flex 1
+			padding pad
+			color color-primary
+			text-decoration none
+			display flex
+			flex-direction column
+		
+		// &:not(:last-child)
+		//  margin-bottom pad
+		
+		.post-title
+			flex 1
+			
+			h2
+				font-size 32px
+				line-height 1.2
+				font-weight 600
+				color rgba(color-white, 0.9)
+				
+		.post-meta
+			font-size 0.750rem
+			font-weight 500
+			
+			span
+				display block
+				color darken(color-primary, 40%)
+				
+				&:not(:last-child)
+					margin-bottom 7px
+						
+		&:hover, &:focus
+			background-color color-secondary
+			
+			.post-title
+				h2
+					color color-primary
+			
+			.post-meta
+				span
+					color color-primary
+					
+
+// Single Post
+
+section#single-post
+	padding-bottom (pad*1.5)
+	
+	.post-head
+		margin-bottom (pad*2)
+		padding-bottom (pad*2)
+		border-bottom 1px solid rgba(color-white, 0.05)
+		
+		.meta
+			font-size 0.750rem
+			color rgba(color-white, 0.6)
+			margin-bottom pad
+			
+			span
+				display inline-block
+				
+				&.divider
+					margin 0 5px
+					
+		.title
+			h2
+				font-size 3rem
+				
+	.post-body
+		@import '_undo-reset'
+		font-paragraph()
+		font-size 19px
+		line-height 1.8
+		color rgba(color-white, 0.7)
+		
+		a
+			color color-secondary
+			text-decoration none
+			
+			&:hover, &:focus
+				text-decoration underline
+			
+		h1, h2, h3, h4, h5, h6
+			font-heading()
+			
+		code
+			display inline-block
+			background-color lighten(color-primary, 7%)
+			padding 0 5px
+			margin 5px 0
+			font-family monospace
+			
+		pre
+			code
+				background-color transparent
+				font-family monospace
+					
+
+
+// About
+
+section#about
+	padding-left 12.5%
+	
+	+below(medium)
+		padding-left 0
+	
+	img.about-image
+		position fixed
+		top 0
+		right 0
+		height 100%
+		z-index -1
+	
+	.small-container
+		margin 0
+		
+	.section-title
+		text-align left
+		margin-bottom (pad*2)
+		
+		+below(medium)
+			text-align center
+		
+		h2
+			padding-left 2px
+		
+	.about-container
+		font-size 17px
+		font-paragraph()
+		line-height 1.8
+		@import '_undo-reset'
+		
+		a
+			color color-secondary
+			text-decoration none
+			
+			&:hover, &:focus
+				text-decoration underline
+		
+
+
+// Contact
+
+section#contact
+	text-align center
+	
+	a.email
+		color rgba(color-white, 0.8)
+		text-decoration none
+		transition color 150ms
+		
+		&:hover, &:focus
+			color color-secondary
+			text-decoration none
+			
+	a
+		color color-secondary
+		text-decoration none
+		
+		&:hover, &:focus
+			text-decoration underline
+	
+	h2
+		font-size 4.5vw
+		margin-bottom pad
+		
+		+below(large)
+			font-size 6vw
+		
+		+below(medium)
+			font-size 7vw
+			
+		+below(small)
+			font-size 8vw
+		
+	p
+		font-size 1.125rem
+		line-height 1.4
+		font-paragraph()
+		
+		&.location
+			margin-bottom (pad/5.5)
+		
+
+
+
+
+
+// Footer
+
+footer
+	padding pad
+	display flex
+	flex-direction row
+	justify-content space-between
+	align-items center
+	
+	a
+		color rgba(color-white, 0.4)
+		text-decoration none
+		transition color 150ms
+		
+		&:hover, &:focus
+			color rgba(color-white, 0.85)
+	
+	.copy-links
+		ul
+			li
+				display inline-block
+				font-size 0.750rem
+				
+				&:not(:last-child)
+					margin-right (pad/2.2)
+					
+					+below(377px)
+						margin-right (pad/4)
+				
+	.social
+		a
+			display inline-block
+			font-size 1.125rem
+			
+			&:not(:last-child)
+				margin-right (pad/2)
+				
+	+below(medium)
+		padding (pad/2)
+				
+	+below(640px)
+		flex-direction column
+		text-align center
+		
+		.copy-links
+			margin-bottom (pad/2)

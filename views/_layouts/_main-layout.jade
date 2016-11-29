@@ -1,0 +1,19 @@
+doctype html
+html.no-js(lang="en")
+
+	include ../_partials/_head
+
+	body(class=(home ? 'home' : ''))
+
+		include ../_partials/_no-js
+		include ../_partials/_header
+
+		//- #particles
+
+		main#barba-wrapper(class=(home ? 'centered' : contact ? 'centered' : ''))
+			block content
+		
+		include ../_partials/_footer
+		include ../_partials/_analytics
+
+		script(src="/js/build.js")
