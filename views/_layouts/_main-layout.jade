@@ -10,7 +10,7 @@ html.no-js(lang="en")
 
 		//- #particles
 
-		main#barba-wrapper(class=(home ? 'centered' : contact ? 'centered' : ''))
+		main#barba-wrapper(class=(home || contact || fourOhFour ? 'centered' : ''))
 			block content
 		
 		include ../_partials/_footer

@@ -94,6 +94,17 @@ function contactView() {
 
 
 
+//* fourOhfour View *//
+
+function fourOhFourView() {
+	var fourOhFourHeading = $('section#fourohfour h2 span');
+	var fourOhFourParagraph = $('section#fourohfour p');
+	TweenMax.staggerTo(fourOhFourHeading, 1, {y: 0, opacity: 1, ease: Expo.easeOut}, 0.055);
+	TweenMax.to(fourOhFourParagraph, 1, {y: 0, opacity: 1, delay: 0.1, ease: Expo.easeOut});
+}
+
+
+
 
 
 $(document).ready(function() {
@@ -153,12 +164,24 @@ $(document).ready(function() {
 		}
 	});
 
+	var FourOhFour = Barba.BaseView.extend({
+		namespace: 'fourohfour',
+		onEnterCompleted: function() {
+			$('main').addClass('centered');
+			fourOhFourView();
+		},
+		onLeave: function() {
+			$('main').removeClass('centered');
+		}
+	});
+
 	Home.init();
 	Projects.init();
 	Blog.init();
 	SinglePost.init();
 	About.init();
 	Contact.init();
+	FourOhFour.init();
 	Barba.Prefetch.init();
 	Barba.Pjax.start();
 

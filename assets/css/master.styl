@@ -317,8 +317,7 @@ main
 
 .on-top
 	position relative
-	z-index 10
-	
+	z-index 10	
 
 .fade-up
 	opacity 0
@@ -391,6 +390,7 @@ section#home
 		
 		&:hover, &:focus
 			text-decoration underline
+			
 
 
 
@@ -722,7 +722,18 @@ section#contact
 		
 		&.location
 			margin-bottom (pad/5.5)
-		
+			
+
+
+// 404
+
+section#fourohfour
+	
+	h2
+		@extend section#home h2
+	p
+		@extend section#home p
+		margin-top (pad/4)
 
 
 
