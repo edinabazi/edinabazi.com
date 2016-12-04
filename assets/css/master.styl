@@ -439,7 +439,7 @@ section#projects
 			
 			+below(small)
 				max-width 70%
-				height 300px
+				height 260px
 			
 			.info-head
 				h2
@@ -461,6 +461,7 @@ section#projects
 				span.post-type
 					flex 1
 					font-size 0.875rem
+					line-height 1.2
 					
 				.arrow
 					display inline-flex
@@ -475,8 +476,11 @@ section#projects
 					
 					span
 						transition 400ms easeOutQuart
+						img
+							width 17px
+							height 13px
 						&.to-go
-							transform translateX(4px)
+							transform translateX(8px)
 						&.to-come 
 							transform translateX(-50px)
 					
@@ -487,7 +491,7 @@ section#projects
 							&.to-go
 								transform translateX(50px)
 							&.to-come
-								transform translateX(-4px)
+								transform translateX(-8px)
 						
 		&:nth-child(odd)
 			.project-image
@@ -609,6 +613,10 @@ section#single-post
 		.title
 			h2
 				font-size 3rem
+				
+		+below(medium)
+			margin-bottom pad
+			padding-bottom pad
 				
 	.post-body
 		@import '_undo-reset'
