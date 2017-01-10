@@ -559,7 +559,7 @@ section#blog
 			
 			h2
 				font-size 32px
-				line-height 1.2
+				line-height 1.5
 				font-weight 600
 				color rgba(color-white, 0.9)
 				
@@ -595,8 +595,8 @@ section#single-post
 		margin-top (pad*2)
 	
 	.post-head
-		margin-bottom (pad*2)
-		padding-bottom (pad*2)
+		margin-bottom (pad*1.5)
+		padding-bottom (pad*1.5)
 		border-bottom 1px solid rgba(color-white, 0.05)
 		
 		.meta
@@ -612,7 +612,14 @@ section#single-post
 					
 		.title
 			h2
-				font-size 3rem
+				font-size 2.75rem
+				line-height 1.5
+			h4
+				margin-top (pad/1.5)
+				font-paragraph()
+				font-style italic
+				font-size 22px
+				color rgba(color-white, 0.6)
 				
 		+below(medium)
 			margin-bottom pad
@@ -621,7 +628,7 @@ section#single-post
 	.post-body
 		@import '_undo-reset'
 		font-paragraph()
-		font-size 19px
+		font-size 18px
 		line-height 1.8
 		color rgba(color-white, 0.7)
 		
