@@ -1,28 +1,32 @@
-//- extends ../_layouts/_main-layout
+extends ../_layouts/_main-layout
 
-//- block vars
-//- 	- var blog = true
-//- 	- var pageTitle = 'Posts written by'
+block vars
+	- var blog = true
+	- var pageTitle = 'Posts written by'
 
-//- block content
+block content
 
-//- 	.barba-container(data-namespace='blog')
+	.barba-container(data-namespace='blog')
 		
-//- 		section#blog
-//- 			.container
+		section#blog
+			.container
 
-//- 				.section-title
-//- 					h2.fade-up Personal Blog
+				.section-title
+					h2.fade-up Personal Blog
 
-//- 				.posts-container
+				.posts-container
 					
-//- 					each post in site.views.blog
-//- 						article.post
-//- 							//- a(href=post._url.slice(0, -5))
-//- 							a(href=post._url)
-//- 								.post-title
-//- 									h2= post.title
+					article.post
+						a(href="https://medium.com/@edinabazi/the-journey-of-creating-a-personal-website-b43ea29e74c0#.fankeviwn", target="_blank")
+							.post-title
+								h2 The journey of creating a personal website
 
-//- 								.post-meta
-//- 									span.date= post.date
-//- 									span.cat= post.category
+							.post-bottom
+								.post-meta
+									span.date 2017-01-11
+									span.cat Thoughts
+								
+								.read-external
+									p
+										| Read on Medium
+										include ../_partials/icon-link.html
