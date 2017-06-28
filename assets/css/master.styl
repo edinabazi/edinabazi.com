@@ -9,7 +9,6 @@
 @import '_vars.styl'
 @import '_partials.styl'
 @import '_prism.styl'
-// @import '_scrollbar.styl'
 @import '_animations.styl'
 
 // Selection Color
@@ -66,6 +65,7 @@ borderColor = lighten(color-primary, 5%)
 
 body
 	font-heading()
+	-webkit-font-smoothing antialiased
 	background-color color-primary
 	color rgba(color-white, 0.9)
 	padding 0
@@ -502,6 +502,7 @@ section#projects
 				right 0
 				left auto
 				transform translate(-15%, 70%)
+				box-shadow -5px 5px 0 color-black
 				+below(small)
 					transform translate(0, 70%)
 
@@ -512,6 +513,7 @@ section#projects
 				right auto
 				left 0
 				transform translate(15%, 70%)
+				box-shadow 5px 5px 0 color-black
 				+below(small)
 					transform translate(0, 70%)
 
